@@ -1,6 +1,6 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Sign In {% endblock %} 
+{% block title %} Login {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -15,9 +15,9 @@
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
+                                <img src="{{url_for('static', filename='assets/img/av_logo.jpg')}}" alt=logo width="130" height="110">
                                 <h1 class="mb-0 h3">
-                                    <a target="_blank"
-                                       href="https://appseed.us/admin-dashboards/flask-dashboard-volt">Flask Volt</a> - Sign UP
+                                    AVRental - Login
                                 </h1>
                                 <br />
                                 <p>
@@ -59,20 +59,18 @@
                                               Remember me
                                             </label>
                                         </div>
-                                        <div class="form-check">
-                                            <a href="{{ url_for('base_blueprint.register') }}" class="small text-right">Register</a>
-                                        </div>
+                                        <!-- <div><a href="./forgot-password.html" class="small text-right">Lost password?</a></div> -->
                                     </div>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="login" class="btn btn-dark">Sign in</button>
+                                    <button type="submit" name="login" class="btn btn-dark">Login</button>
                                 </div>
                             </form>
 
                             <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="font-weight-normal">
-                                    &copy; <a  href="https://themesberg.com" target="_blank">Themesberg</a> 
-                                    - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>
+                                <span class="fw-normal">
+                                    Not registered?
+                                    <a href="{{ url_for('base_blueprint.register') }}" class="fw-bold">Create account</a>
                                 </span>
                             </div>
 

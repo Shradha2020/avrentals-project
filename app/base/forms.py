@@ -17,3 +17,7 @@ class CreateAccountForm(FlaskForm):
     username = TextField('Username'     , id='username_create' , validators=[DataRequired()])
     email    = TextField('Email'        , id='email_create'    , validators=[DataRequired(), Email()])
     password = PasswordField('Password' , id='pwd_create'      , validators=[DataRequired()])
+    carmodel = TextField('carmodel' , id='carmodel'      , validators=[DataRequired()])
+    carNo = TextField('carNo' , id='carNo'      , validators=[DataRequired()])
+    carcolor = TextField('carcolor' , id='carcolor'      , validators=[DataRequired()])
+

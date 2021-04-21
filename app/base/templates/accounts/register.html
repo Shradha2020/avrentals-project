@@ -14,9 +14,9 @@
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="mb-4 mb-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
+                                <img src="{{url_for('static', filename='assets/img/av_logo.jpg')}}" alt=logo width="130" height="110">
                                 <h1 class="mb-0 h3">
-                                    <a target="_blank"
-                                       href="https://appseed.us/admin-dashboards/flask-dashboard-volt">Flask Volt</a> - Sign UP
+                                    Create an account
                                 </h1>
                                 <br />
                                 <p>
@@ -64,27 +64,105 @@
                                     </div>
                                     <!-- End of Form -->
 
-                                    <div class="d-flex justify-content-between align-items-top mb-4">
+                                    <div class="form-group">
+                                        <!-- Radio -->
+                                        <fieldset>
+                                            <legend class="h6">Select your Role</legend>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="role" id="owner" value="owner" onclick="EnableText()">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                  Car owner
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="role" id="user" value="user" onclick="EnableText()">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                  Car user
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="role" id="admin" value="admin" onclick="EnableText()">
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                  System admin
+                                                </label>
+                                              </div>
+                                            <!-- End of Radio -->
+                                        </fieldset>
+                                    </div>
+
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">Your Car Model</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"><span class="fas fa-car"></span></span>
+                                            {{ form.carmodel(placeholder="Car Model", class="form-control") }}
+                                        </div>  
+                                    </div>
+                                    <!-- End of Form -->
+
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">Your Car Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"><span class="fas fa-id-badge"></span></span>
+                                            {{ form.carNo(placeholder="Car No.", class="form-control") }}
+                                        </div>  
+                                    </div>
+                                    <!-- End of Form -->
+
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">Your Car Color</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"><span class="fas fa-swatchbook"></span></span>
+                                            {{ form.carcolor(placeholder="Car Color", class="form-control") }}
+                                        </div>  
+                                    </div>
+                                    <!-- End of Form -->
+
+                                    <div class="form-group">
+                                        <!-- Radio -->
+                                        <fieldset>
+                                            <legend class="h6">Select your Car Type</legend>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="cartype" id="sedan" value="sedan">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Sedan
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="cartype" id="suv" value="suv">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                  SUV
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="cartype" id="limo" value="limo">
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                  Limousine
+                                                </label>
+                                              </div>
+                                            <!-- End of Radio -->
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-top mb-4" style="margin-top: 30px;">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="remember">
                                             <label class="form-check-label mb-0" for="remember">
-                                              Agree Terms
+                                              I agree to the terms and conditions
                                             </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <a href="{{ url_for('base_blueprint.login') }}" class="small text-right">Login</a>
                                         </div>
                                     </div>                                  
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="register" class="btn btn-dark">Sign UP</button>
+                                    <button type="submit" name="register" class="btn btn-dark">Sign Up</button>
                                 </div>
                             </form>
-
                             <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="font-weight-normal">
-                                    &copy; <a  href="https://themesberg.com" target="_blank">Themesberg</a> 
-                                    - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>
+                                <span class="fw-normal">
+                                    Already registered?
+                                    <a href="{{ url_for('base_blueprint.login') }}" class="fw-bold">Login here</a>
                                 </span>
                             </div>
 

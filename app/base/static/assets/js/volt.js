@@ -378,3 +378,12 @@ d.addEventListener("DOMContentLoaded", function(event) {
     }
 
 });
+
+function EnableText() {
+    document.getElementById("carname").disabled = document.getElementById("owner").checked ? false: true;
+    document.getElementById("carNo").disabled = document.getElementById("owner").checked ? false: true;
+    document.getElementById("carcolor").disabled = document.getElementById("owner").checked ? false: true;
+    document.getElementById("sedan").disabled = document.getElementById("owner").checked ? false: true;
+    document.getElementById("suv").disabled = document.getElementById("owner").checked ? false: true;
+    document.getElementById("limo").disabled = document.getElementById("owner").checked ? false: true;
+}
