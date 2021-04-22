@@ -63,36 +63,17 @@
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
-
-                                    <div class="form-group">
-                                        <!-- Radio -->
-                                        <fieldset>
-                                            <legend class="h6">Select your Role</legend>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="role" id="owner" value="owner" onclick="EnableText()">
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                  Car owner
-                                                </label>
-                                              </div>
-                                              <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="role" id="user" value="user" onclick="EnableText()">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                  Car user
-                                                </label>
-                                              </div>
-                                              <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="role" id="admin" value="admin" onclick="EnableText()">
-                                                <label class="form-check-label" for="exampleRadios3">
-                                                  System admin
-                                                </label>
-                                              </div>
-                                            <!-- End of Radio -->
-                                        </fieldset>
+                                    
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label class="my-1 me-2" for="role">Select your Role</label>
+                                        {{form.role(class="form-select")}}
                                     </div>
+                                    <!-- End of Form -->
 
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Car Model</label>
+                                        <label for="carmodel">Your Car Model</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon3"><span class="fas fa-car"></span></span>
                                             {{ form.carmodel(placeholder="Car Model", class="form-control") }}
@@ -102,7 +83,7 @@
 
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Car Number</label>
+                                        <label for="carNo">Your Car Number</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon3"><span class="fas fa-id-badge"></span></span>
                                             {{ form.carNo(placeholder="Car No.", class="form-control") }}
@@ -112,7 +93,7 @@
 
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Car Color</label>
+                                        <label for="carcolor">Your Car Color</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon3"><span class="fas fa-swatchbook"></span></span>
                                             {{ form.carcolor(placeholder="Car Color", class="form-control") }}
@@ -120,31 +101,12 @@
                                     </div>
                                     <!-- End of Form -->
 
-                                    <div class="form-group">
-                                        <!-- Radio -->
-                                        <fieldset>
-                                            <legend class="h6">Select your Car Type</legend>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="cartype" id="sedan" value="sedan">
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                    Sedan
-                                                </label>
-                                              </div>
-                                              <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="cartype" id="suv" value="suv">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                  SUV
-                                                </label>
-                                              </div>
-                                              <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="cartype" id="limo" value="limo">
-                                                <label class="form-check-label" for="exampleRadios3">
-                                                  Limousine
-                                                </label>
-                                              </div>
-                                            <!-- End of Radio -->
-                                        </fieldset>
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label class="my-1 me-2" for="role">Select your Car Type</label>
+                                        {{form.cartype(class="form-select")}}
                                     </div>
+                                    <!-- End of Form -->
 
                                     <div class="d-flex justify-content-between align-items-top mb-4" style="margin-top: 30px;">
                                         <div class="form-check">

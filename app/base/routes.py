@@ -76,9 +76,27 @@ def register():
                                     form=create_account_form)
 
         # else we can create the user
-        user = User(**request.form)
+        user = User(
+            username = request.form['username'],
+            password = request.form['password'],
+            email = request.form['email'],
+            role = request.form['role'],
+        )
         db.session.add(user)
         db.session.commit()
+
+        # user_query = User.query.filter_by(email=email).first()
+        # userid = user_query.id
+        # # if request.form['role'] == 'owner':
+        # car = Car(
+        #     user_id = userid,
+        #     carmodel = request.form['carmodel'],
+        #     carNo = request.form['carNo'],
+        #     carcolor = request.form['carcolor'],
+        #     cartype = request.form['cartype'],
+        # )
+        # db.session.add(car)
+        # db.session.commit()
 
         return render_template( 'accounts/register.html', 
                                 msg='User created please <a href="/login">login</a>', 

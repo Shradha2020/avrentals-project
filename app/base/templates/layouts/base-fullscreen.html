@@ -69,6 +69,25 @@
 <link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet">
 
 </head>
+<script type="text/javascript">
+    function enable_fn(){
+        var carname = document.getElementById('carmodel');
+        var role = document.getElementById('role');
+        console.log(role.value)
+        if(role.value == "owner"){
+            carname.disabled = false;
+            document.getElementById('carNo').disabled = false;
+            document.getElementById('carcolor').disabled = false;
+            document.getElementById('cartype').disabled = false;
+        }
+        else{
+            carname.disabled = true;
+            document.getElementById('carNo').disabled = true;
+            document.getElementById('carcolor').disabled = true;
+            document.getElementById('cartype').disabled = true;
+        }
+    }
+</script>
 <body>
 
     {% block content %}{% endblock content %}
