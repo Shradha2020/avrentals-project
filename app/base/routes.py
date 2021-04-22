@@ -14,7 +14,7 @@ from flask_login import (
 from app import db, login_manager
 from app.base import blueprint
 from app.base.forms import LoginForm, CreateAccountForm
-from app.base.models import User
+from app.base.models import User, Car
 
 from app.base.util import verify_pass
 
@@ -85,18 +85,16 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        # user_query = User.query.filter_by(email=email).first()
-        # userid = user_query.id
-        # # if request.form['role'] == 'owner':
-        # car = Car(
-        #     user_id = userid,
-        #     carmodel = request.form['carmodel'],
-        #     carNo = request.form['carNo'],
-        #     carcolor = request.form['carcolor'],
-        #     cartype = request.form['cartype'],
-        # )
-        # db.session.add(car)
-        # db.session.commit()
+        if request.form['role'] == 'owner':
+            car = Car(
+                owner = user,
+                carmodel = request.form['carmodel'],
+                carNo = request.form['carNo'],
+                carcolor = request.form['carcolor'],
+                cartype = request.form['cartype'],
+            )
+            db.session.add(car)
+            db.session.commit()
 
         return render_template( 'accounts/register.html', 
                                 msg='User created please <a href="/login">login</a>', 

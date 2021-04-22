@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     email = Column(String, unique=True)
     password = Column(Binary)
     role = Column(String)
-    # car = relationship('Car', foreign_keys=[id], backref=db.backref('Car'), lazy='dynamic')
+    car = relationship('Car', backref='owner', lazy='dynamic', primaryjoin='User.id == Car.user_id')
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
@@ -39,18 +39,18 @@ class User(db.Model, UserMixin):
         return str(self.username)
 
 
-# class Car(db.Model):
-#     __tablename__ = 'avrentalcars'
+class Car(db.Model):
+    __tablename__ = 'avrentalcars'
 
-#     id = Column(Integer, primary_key=True)
-#     user_id = Column(Integer, ForeignKey('avrentallogin.id'))
-#     carmodel = Column(String)
-#     carNo = Column(String)
-#     carcolor = Column(String)
-#     cartype = Column(String)
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('avrentallogin.id'))
+    carmodel = Column(String)
+    carNo = Column(String)
+    carcolor = Column(String)
+    cartype = Column(String)
 
-#     def __repr__(self):
-#         return '<Carmodel: {}'.format(self.carmodel)
+    def __repr__(self):
+        return '<Carmodel: {}'.format(self.carmodel)
 
 
 @login_manager.user_loader
