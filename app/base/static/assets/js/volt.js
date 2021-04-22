@@ -376,23 +376,4 @@ d.addEventListener("DOMContentLoaded", function(event) {
             }
         });
     }
-
-    var carname = d.getElementById('carmodel');
-    var role = d.getElementById('role');
-    role.addEventListener('change', function(){
-        console.log(role)
-        if(role == "owner"){
-            carname.render_kw = {disabled: "False"}
-        }
-    });
-
 });
-
-function enable_fn(){
-    var carname = d.getElementById('carmodel');
-    var role = d.getElementById('role');
-    console.log(role)
-    if(role == "owner"){
-        carname.render_kw = {disabled: "False"}
-    }
-}

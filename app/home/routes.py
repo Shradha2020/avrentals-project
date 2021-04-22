@@ -13,11 +13,11 @@ from app.base.models import User, Car
 from app import db, login_manager
 
 
-@blueprint.route('/index')
+@blueprint.route('/dashboard')
 @login_required
-def index():
+def dashboard():
 
-    return render_template('index.html', segment='index')
+    return render_template('dashboard.html', segment='index')
 
 @blueprint.route('/<template>',methods=['GET', 'POST'])
 @login_required
@@ -77,7 +77,7 @@ def get_segment( request ):
         segment = request.path.split('/')[-1]
 
         if segment == '':
-            segment = 'index'
+            segment = 'dashboard'
 
         return segment    
 

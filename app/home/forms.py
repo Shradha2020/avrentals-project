@@ -4,7 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_wtf import FlaskForm
-from wtforms import TextField, PasswordField , SubmitField
+from wtforms import TextField, PasswordField , SubmitField, SelectField
 from wtforms.validators import InputRequired, Email, DataRequired
 
 ## Settings
@@ -14,7 +14,7 @@ class UpdateSettingsForm(FlaskForm):
     lastname = TextField('lastname'     , id='last_create')
     phonenumber = TextField('phonenumber'     , id='phonenumber_create')
     dob = TextField('dob'     , id='dob')
-    gender = TextField('gender'     , id='gender')
+    gender = SelectField('gender'     , id='gender', choices=[('', 'Select Gender'), ('female', 'Female'), ('male', 'Male')])
     city = TextField('city'     , id='city')
     zip = TextField('zip'     , id='zip')
     address = TextField('address'     , id='address')
