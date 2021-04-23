@@ -1,7 +1,7 @@
 import boto3
 
-ACCESS_KEY = 'AKIAZMHF5P24ZTIG7C5P'
-SECRET_KEY = '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'
+ACCESS_KEY = '#'
+SECRET_KEY = '#'
 
 def upload_file(file_name, bucket):
     """
