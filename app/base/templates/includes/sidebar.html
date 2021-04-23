@@ -66,6 +66,18 @@
             </span>
           </a>
         </li>
+                <li class="nav-item {% if 'storage' in segment %} active {% endif %}">
+                  {% if current_user.role == 'admin' %}
+          <a href="/storage.html" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-table"></span></span>
+            <span class="sidebar-text">Storage</span>
+            <span class="mb-0 font-small fw-bold">
+<!--               <strong>{{ current_user.role }}</strong>-->
+            </span>
+          </a>
+                   {% else %}
+                  {% endif %}
+        </li>
         <li class="nav-item {% if 'bootstrap-tables' in segment %} active {% endif %}">
           <span
             class="nav-link  collapsed  d-flex justify-content-between align-items-center"
