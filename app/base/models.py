@@ -57,9 +57,23 @@ class Car(db.Model):
     carNo = Column(String)
     carcolor = Column(String)
     cartype = Column(String)
+    active = Column(String)
+    ride = relationship('Ride', backref='ride', lazy='dynamic', primaryjoin='Car.id == Ride.car_id')
 
     def __repr__(self):
         return '<Carmodel: {}'.format(self.carmodel)
+
+
+class Ride(db.Model):
+    __tablename__ = 'avrentalrides'
+
+    id = Column(Integer, primary_key=True)
+    car_id = Column(Integer, ForeignKey('avrentalcars.id'))
+    source = Column(String)
+    destination = Column(String)
+
+    def __repr__(self):
+        return '<RideDetails: {}'.format(self.source)
 
 
 @login_manager.user_loader

@@ -20,3 +20,9 @@ class UpdateSettingsForm(FlaskForm):
     address = TextField('address'     , id='address')
     houseno = TextField('houseno', id='houseno')
     saveall = SubmitField('saveall')
+
+class DashboardForm(FlaskForm):
+    source = TextField('source', id='source')
+    destination = TextField('destination', id='destination')
+    cartype = SelectField('cartype', id='cartype', choices=[('', 'View car types'), ('Sedan', 'Sedan'), ('SUV', 'SUV'), ('Limousine', 'Limousine')])
+    book = SubmitField('book')
