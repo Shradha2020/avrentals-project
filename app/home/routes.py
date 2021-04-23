@@ -12,6 +12,7 @@ from app.home.forms import UpdateSettingsForm, DashboardForm
 from app.base.models import User, Car, Ride
 from app import db, login_manager
 import os
+import random
 from app.home.s3_demo import list_files, download_file, upload_file
 
 
@@ -44,7 +45,16 @@ def dashboard():
 @login_required
 def dashboardadmin():
     data = Car.query.all()  # data from database
-    return render_template('dashboard-admin.html', query=data)
+    # user_data = User.query.all()
+    page = request.args.get('page', 1, type=int)
+
+    user_data = User.query.paginate(page=page, per_page=5)
+
+    random_no = []
+    for row in data:
+        random_no.append(random.randint(50, 100))
+    print(random_no)
+    return render_template('dashboard-admin.html', query=data, user_query=user_data, battery=random_no, zip=zip)
 
 
 @blueprint.route('/dashboard-owner', methods=['GET', 'POST'])
@@ -77,6 +87,12 @@ def settings():
 
     return render_template('settings.html', form=setting_form)
 
+@blueprint.route('/transactions', methods=['GET', 'POST'])
+@login_required
+def transactions():
+    # data = Car.query.all()  # data from database
+    # user_data = User.query.all()
+    return render_template('transactions.html')
 
 @blueprint.route('/storage')
 @login_required
