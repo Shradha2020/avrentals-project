@@ -39,7 +39,14 @@
   <div class="row">
       <div class="col-12 col-xl-8">
           <div class="card card-body shadow-sm mb-4">
+               <h2 class="h5 mb-4">Role </h2>
+              <div class="col-md-6 mb-3">
+                          <div class="form-group">
+                              <input class="form-control" placeholder={{ current_user.role }} readonly>
+                          </div>
+                      </div>
               <h2 class="h5 mb-4">General information</h2>
+
               <form method="post" action="">
 
                   {{ form.hidden_tag() }}
@@ -47,6 +54,7 @@
                   <div class="row">
                       <div class="col-md-6 mb-3">
                           <div>
+
                               <label for="first_name">First Name</label>
                               <span class="col-md-6 mb-3-text" id="basic-addon000"><span class="fas fa-car1"></span></span>
                               {{ form.firstname(placeholder="First Name",  class="form-control") }}
