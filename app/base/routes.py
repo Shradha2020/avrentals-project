@@ -17,6 +17,7 @@ from app.base.forms import LoginForm, CreateAccountForm
 from app.base.models import User, Car
 
 from app.base.util import verify_pass
+from app.helpers.mailer import *
 
 
 @blueprint.route('/')
@@ -97,7 +98,9 @@ def register():
             )
             db.session.add(car)
             db.session.commit()
-
+            # sendmail(subject="Registration for Flask Admin Boilerplate", sender="Flask Admin Boilerplate",
+            #          recipient=email, body="You successfully registered on Flask Admin Boilerplate")
+            # print("Done")
         return render_template('accounts/register.html',
                                msg='User created please <a href="/login">login</a>',
                                success=True,
@@ -133,3 +136,4 @@ def not_found_error(error):
 @blueprint.errorhandler(500)
 def internal_error(error):
     return render_template('page-500.html'), 500
+

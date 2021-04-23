@@ -31,20 +31,24 @@
             <div class="mt-1 ms-1 sidebar-text"><b>AVRentals</b></div>
           </a>
         </li>
-        <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
+<!--        <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">-->
+        <li class="nav-item">
           {% if current_user.role == 'admin' %}
-            <a href="/dashboard-admin.html" class="nav-link">
+<!--            <a href="/dashboard-admin.html" class="nav-link">-->
+                      <a href="{{ url_for('home_blueprint.dashboardadmin') }}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
               <span class="sidebar-text">Dashboard Cloud Staff</span>
             </a>
           {% else %}
             {% if current_user.role == 'owner' %}
-              <a href="/dashboard-owner.html" class="nav-link">
+<!--              <a href="/dashboard-owner.html" class="nav-link">-->
+                 <a href="{{ url_for('home_blueprint.dashboardowner') }}" class="nav-link">
                 <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
                   <span class="sidebar-text">Dashboard Car Owner</span>
                 </a>
           {% else %}
             <a href="{{ url_for('home_blueprint.dashboard') }}" class="nav-link">
+<!--                <a href="/dashboard.html" class="nav-link">-->
                 <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
                   <span class="sidebar-text">Dashboard Car User</span>
                 </a>
@@ -70,7 +74,8 @@
         </li>
                 <li class="nav-item {% if 'storage' in segment %} active {% endif %}">
                   {% if current_user.role == 'admin' %}
-          <a href="/storage.html" class="nav-link">
+<!--          <a href="/storage.html" class="nav-link">-->
+              <a href="{{ url_for('home_blueprint.storage') }}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-table"></span></span>
             <span class="sidebar-text">Storage</span>
             <span class="mb-0 font-small fw-bold">
