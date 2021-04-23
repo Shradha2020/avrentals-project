@@ -68,10 +68,41 @@
                         <button type="submit" name="book" class="btn btn-dark">Book Ride</button>
                     </div>
                 </form>
+                {% if car %}
+                <div class="col-12 col-sm-6 col-xl-4 mb-4 mt-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body">
+                            <div class="row d-block d-xl-flex align-items-center">
+                                <div
+                                    class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded me-4 me-sm-0"><span
+                                            class="fas fa-car"></span></div>
+                                </div>
+                                <div class="col-12 col-xl-7 px-xl-0">
+                                    <div class="d-none d-sm-block">
+                                        <h2 class="h5">{{car.carmodel}}</h2>
+                                        <h3 class="mb-1">Car No: {{car.carNo}}</h3>
+                                    </div>
+                                    <div class=small>
+                                        <span class="fas fa-clock"></span>
+                                        <span> Estimated time: 2 hours</span>
+                                    </div>
+                                    <div class="small mt-2">
+                                        <span class="fas fa-money-bill-wave text-success"></span>
+                                        <span class="text-success fw-bold">Estimated Fare: $70</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div>HI!</div>
+                {% endif %}
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+    <!-- <div class="col-12 col-sm-6 col-xl-4 mb-4">
         <div class="card border-light shadow-sm">
             <div class="card-body">
                 <div class="row d-block d-xl-flex align-items-center">
@@ -265,7 +296,6 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
                                         <a href="#" class="user-avatar">
                                             <img class="rounded-circle" alt="Image placeholder"
                                                 src="/static/assets/img/team/profile-picture-1.jpg">
@@ -287,7 +317,6 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
                                         <a href="#" class="user-avatar">
                                             <img class="rounded-circle" alt="Image placeholder"
                                                 src="/static/assets/img/team/profile-picture-2.jpg">
@@ -309,7 +338,6 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
                                         <a href="#" class="user-avatar">
                                             <img class="rounded-circle" alt="Image placeholder"
                                                 src="/static/assets/img/team/profile-picture-3.jpg">
@@ -331,7 +359,6 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
                                         <a href="#" class="user-avatar">
                                             <img class="rounded-circle" alt="Image placeholder"
                                                 src="/static/assets/img/team/profile-picture-4.jpg">
@@ -544,7 +571,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 {% endblock content %}
 

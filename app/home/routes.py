@@ -29,7 +29,6 @@ def dashboard():
         car.active = 'true'
         print(request.form['source'])
         print(request.form['destination'])
-        print(car.active)
         ride = Ride(
                 ride=car,
                 source=request.form['source'],
@@ -37,15 +36,15 @@ def dashboard():
             )
         db.session.add(ride)
         db.session.commit()
-        
-    return render_template('dashboard.html', segment='dashboard', form=dashboard_form)
+        return render_template('dashboard.html', segment='dashboard', form=dashboard_form, car=car)
+    else:    
+        return render_template('dashboard.html', segment='dashboard', form=dashboard_form)
 
 
 @blueprint.route('/dashboard-admin', methods=['GET', 'POST'])
 @login_required
 def dashboardadmin():
     data = Car.query.all()  # data from database
-    # user_data = User.query.all()
     page = request.args.get('page', 1, type=int)
 
     user_data = User.query.paginate(page=page, per_page=5)
