@@ -17,7 +17,7 @@ from app.base.forms import LoginForm, CreateAccountForm
 from app.base.models import User, Car
 
 from app.base.util import verify_pass
-from app.helpers.mailer import *
+# from app.helpers.mailer import *
 
 
 @blueprint.route('/')
