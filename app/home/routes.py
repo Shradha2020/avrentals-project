@@ -43,13 +43,16 @@ def dashboard():
 @blueprint.route('/dashboard-admin', methods=['GET', 'POST'])
 @login_required
 def dashboardadmin():
-    return render_template('dashboard-admin.html')
+    data = Car.query.all()  # data from database
+    return render_template('dashboard-admin.html', query=data)
 
 
 @blueprint.route('/dashboard-owner', methods=['GET', 'POST'])
 @login_required
 def dashboardowner():
-    return render_template('dashboard-owner.html')
+        data = Car.query.filter_by(user_id = current_user.id ).all()  # data from database
+        #print(data)
+        return render_template('dashboard-owner.html', query=data)
 
 
 @blueprint.route('/settings', methods=['GET', 'POST'])

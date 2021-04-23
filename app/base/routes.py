@@ -50,7 +50,12 @@ def login():
     if not current_user.is_authenticated:
         return render_template('accounts/login.html',
                                form=login_form)
-    return redirect(url_for('home_blueprint.dashboard'))
+    if current_user.role == 'admin':
+        return redirect(url_for('home_blueprint.dashboardadmin'))
+    elif current_user.role == 'owner':
+        return redirect(url_for('home_blueprint.dashboardowner'))
+    else:
+        return redirect(url_for('home_blueprint.dashboard'))
 
 
 @blueprint.route('/register', methods=['GET', 'POST'])
