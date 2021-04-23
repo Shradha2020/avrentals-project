@@ -60,8 +60,12 @@ def dashboardadmin():
 @login_required
 def dashboardowner():
         data = Car.query.filter_by(user_id = current_user.id ).all()  # data from database
-        #print(data)
-        return render_template('dashboard-owner.html', query=data)
+        carrides_owned = []
+        # page = request.args.get('page', 1, type=int)
+        for i in data:
+            rides = Ride.query.filter_by(car_id=i.id).all()
+            carrides_owned.extend(rides)
+        return render_template('dashboard-owner.html', query=data, carrides=carrides_owned)
 
 
 @blueprint.route('/settings', methods=['GET', 'POST'])
@@ -79,9 +83,9 @@ def settings():
             user.zip = request.form['zip']
             user.houseno = request.form['houseno']
             user.dob = request.form['dob']
-            # user.gender = request.form['firstname']
+            user.gender = request.form['gender']
             user.phonenumber = request.form['phonenumber']
-            print(user.firstname)
+            print(user.gender)
             db.session.commit()
 
     return render_template('settings.html', form=setting_form)

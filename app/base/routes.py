@@ -100,6 +100,7 @@ def register():
                 carNo=request.form['carNo'],
                 carcolor=request.form['carcolor'],
                 cartype=request.form['cartype'],
+                active='false'
             )
             db.session.add(car)
             db.session.commit()
