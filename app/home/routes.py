@@ -10,7 +10,7 @@ from app.base.models import User, Car, Ride
 from app import db, login_manager
 import os
 import random
-from app.home.s3_demo import list_files, download_file, upload_file
+# from app.home.s3_demo import list_files, download_file, upload_file
 
 
 UPLOAD_FOLDER = "uploads"
@@ -94,29 +94,29 @@ def transactions():
     # user_data = User.query.all()
     return render_template('transactions.html')
 
-@blueprint.route('/storage')
-@login_required
-def storage():
-    print("hello")
-    #contents = list_files("avcloudbucket")
-    contents = list_files("trailcloudupload")
-    return render_template('storage.html', segment='index' , contents=contents)
+# @blueprint.route('/storage')
+# @login_required
+# def storage():
+#     print("hello")
+#     #contents = list_files("avcloudbucket")
+#     contents = list_files("trailcloudupload")
+#     return render_template('storage.html', segment='index' , contents=contents)
 
-@blueprint.route("/upload", methods=['POST'])
-def upload():
-    if request.method == "POST":
-        f = request.files['file']
-        f.save(os.path.join(UPLOAD_FOLDER, f.filename))
-        upload_file(f"{f.filename}", BUCKET)
+# @blueprint.route("/upload", methods=['POST'])
+# def upload():
+#     if request.method == "POST":
+#         f = request.files['file']
+#         f.save(os.path.join(UPLOAD_FOLDER, f.filename))
+#         upload_file(f"{f.filename}", BUCKET)
 
-        return redirect({{ url_for('home_blueprint.storage') }})
+#         return redirect({{ url_for('home_blueprint.storage') }})
 
-@blueprint.route("/download/<filename>", methods=['GET'])
-def download(filename):
-    if request.method == 'GET':
-        output = download_file(filename, BUCKET)
+# @blueprint.route("/download/<filename>", methods=['GET'])
+# def download(filename):
+#     if request.method == 'GET':
+#         output = download_file(filename, BUCKET)
 
-        return send_file(output, as_attachment=True)
+#         return send_file(output, as_attachment=True)
 
 
 # @blueprint.route('/<template>',methods=['GET', 'POST'])
